@@ -2,7 +2,7 @@
 /dist
 /node_modules
 
-/mongo
+/3-pokedex/mongo
 
 # Logs
 logs
