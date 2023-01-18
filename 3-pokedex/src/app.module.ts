@@ -3,6 +3,7 @@ import { Module } from '@nestjs/common';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule } from '@nestjs/config';
+import { JoiValidationSchema } from './config/joi.validation';
 
 import { PokemonModule } from './pokemon/pokemon.module';
 import { CommonModule } from './common/common.module';
@@ -14,6 +15,7 @@ import { EnvConfiguration } from './config/app.config';
 
     ConfigModule.forRoot({
       load: [ EnvConfiguration ],
+      validationSchema: JoiValidationSchema,
     }),
 
     ServeStaticModule.forRoot({
@@ -33,8 +35,6 @@ import { EnvConfiguration } from './config/app.config';
 })
 export class AppModule {
 
-  constructor(){
-    console.log(process.env);
-  }
+  constructor(){}
 
 }
